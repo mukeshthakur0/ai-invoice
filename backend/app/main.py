@@ -11,11 +11,11 @@ import os
 # from app.api.chat_routes import router as chat_router
 # from app.api.resource_routes import router as resource_router
 # from app.api.health_routes import router as health_router
-from app.core.database import Base, engine
+#from app.core.database import Base, engine
 from app.core.config import CORS_ORIGINS
 # from fastapi.staticfiles import StaticFiles
 
-Base.metadata.create_all(bind=engine)
+#Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Student AI Platform",
@@ -61,7 +61,7 @@ import sys
 
 
 
-# @app.get("/")
+@app.get("/")
 async def root():
     """Root endpoint"""
     return {
