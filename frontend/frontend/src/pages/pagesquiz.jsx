@@ -47,7 +47,7 @@ export default function Quiz() {
       setError(null);
       const response =
         await axios.post(
-          `http://localhost:8000/api/quizzes/${documentId}`,
+          `${import.meta.env.VITE_API_URL}/api/quizzes/${documentId}`,
           {
             num_questions: 10,
             difficulty: "medium"

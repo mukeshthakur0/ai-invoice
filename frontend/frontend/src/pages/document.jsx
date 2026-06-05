@@ -29,7 +29,7 @@ const Documents = () => {
       setFetchLoading(true);
 
       const response = await axios.get(
-        "http://localhost:8000/api/notes/",
+        `${import.meta.env.VITE_API_URL}/api/notes/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -68,7 +68,7 @@ const Documents = () => {
       formData.append("file", file);
 
       const response = await axios.post(
-        "http://localhost:8000/api/notes/upload",
+        `${import.meta.env.VITE_API_URL}/api/notes/upload`,
         formData,
         {
           headers: {

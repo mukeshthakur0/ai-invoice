@@ -19,7 +19,7 @@ export default function FlashcardSelect() {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:8000/api/notes/",
+        `${import.meta.env.VITE_API_URL}/api/notes/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
