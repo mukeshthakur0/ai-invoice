@@ -22,27 +22,34 @@ app = FastAPI(
     version="1.0.0",
     description="AI-powered learning platform with quiz generation, flashcards, and more"
 )
+@app.get("/")
+async def root():
+    return {"message": "working"}
+
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
 
 # Mount uploads directory
 #app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # Configure CORS
-origins = CORS_ORIGINS if isinstance(CORS_ORIGINS, list) else CORS_ORIGINS.split(",")
+# origins = CORS_ORIGINS if isinstance(CORS_ORIGINS, list) else CORS_ORIGINS.split(",")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-import os
-from dotenv import load_dotenv
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+# import os
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 
-import sys
+# import sys
 
 
 # Include routers
@@ -61,13 +68,5 @@ import sys
 
 
 
-@app.get("/")
-async def root():
-    """Root endpoint"""
-    return {
-        "message": "Student AI Platform API",
-        "version": "1.0.0",
-        "docs": "/docs"
-    }
 
 
