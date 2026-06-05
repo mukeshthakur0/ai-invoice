@@ -22,11 +22,11 @@ def create_summary(
 ):
     document = db.query(Document).filter(
         Document.id == summary_request.document_id,
-        # BUG FIX: Original had no user_id check — any user could summarise any doc
+       
         Document.user_id == current_user.id,
     ).first()
 
-    # BUG FIX: Original had no 404 guard — would crash with AttributeError if None
+    
     if not document:
         raise HTTPException(status_code=404, detail="Document not found")
 
