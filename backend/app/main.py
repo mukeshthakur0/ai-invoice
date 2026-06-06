@@ -31,7 +31,11 @@ origins = CORS_ORIGINS if isinstance(CORS_ORIGINS, list) else CORS_ORIGINS.split
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "https://learnflow-alpha.vercel.app",
+        "https://learnflow-git-main-techspace580-gmailcoms-projects.vercel.app",
+        "https://learnflow-hfs9gqbfj-techspace580-gmailcoms-projects.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
