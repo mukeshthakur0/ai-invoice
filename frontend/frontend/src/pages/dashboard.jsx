@@ -39,7 +39,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        `${API_BASE_URL}/dashboard/overview`,
+        `${API_BASE_URL}/api/dashboard/overview`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -102,7 +102,7 @@ export default function Dashboard() {
 
       {/* Stats */}
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8">
-        {/* Notes */}
+       
         <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
           <div className="bg-violet-100 w-fit p-3 rounded-xl mb-4">
             <FileText className="text-violet-600 w-6 h-6" />
